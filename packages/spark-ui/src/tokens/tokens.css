@@ -1,0 +1,150 @@
+/*
+ * Spark UI Token Definitions
+ *
+ * This file declares the foundational design tokens used throughout
+ * the component library. It includes font faces, colour variables,
+ * spacing, sizing and radii. Consumers of Spark UI should import
+ * this file once in their application (e.g. in a global CSS file
+ * or in the `_app.tsx` of a Next.js project) to ensure the custom
+ * properties are available to all components.
+ *
+ * The default theme is the “light” theme. To activate the dark
+ * theme, apply `data-theme="dark"` on a containing element such
+ * as the `<html>` or `<body>` tag. All colour values are defined
+ * using HSL notation split into three CSS custom properties so that
+ * they can be interpolated via the `hsl(var(--...))` pattern.
+ */
+
+/* Roboto font faces – pulling from the SD Worx CDN. */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('https://cdn.sdworx.com/ignite/assets/fonts/roboto/roboto-300.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://cdn.sdworx.com/ignite/assets/fonts/roboto/roboto-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('https://cdn.sdworx.com/ignite/assets/fonts/roboto/roboto-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://cdn.sdworx.com/ignite/assets/fonts/roboto/roboto-700.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('https://cdn.sdworx.com/ignite/assets/fonts/roboto-mono/roboto-mono-300.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://cdn.sdworx.com/ignite/assets/fonts/roboto-mono/roboto-mono-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('https://cdn.sdworx.com/ignite/assets/fonts/roboto-mono/roboto-mono-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://cdn.sdworx.com/ignite/assets/fonts/roboto-mono/roboto-mono-700.woff2') format('woff2');
+}
+
+/* Base colour palette (light theme). Values are stored as hue, saturation
+ * and lightness triples. Components consume these tokens via the
+ * `hsl()` function: e.g. `background-color: hsl(var(--color-primary));`. */
+:root {
+  /* Surface and text colours */
+  --color-bg: 0 0% 100%;            /* global background */
+  --color-fg: 220 22% 20%;          /* global foreground (text) */
+  --color-muted: 220 12% 46%;       /* subdued text */
+
+  /* Primary colour scales */
+  --color-primary: 218 78% 48%;     /* brand blue */
+  --color-primary-contrast: 0 0% 100%;
+  --color-primary-hover: 218 78% 42%;
+  --color-primary-pressed: 218 78% 38%;
+
+  /* Secondary colour (accent) */
+  --color-secondary: 340 65% 47%;    /* pink-ish accent */
+  --color-secondary-contrast: 0 0% 100%;
+  --color-secondary-hover: 340 65% 42%;
+  --color-secondary-pressed: 340 65% 38%;
+
+  /* Semantic colours */
+  --color-success: 152 49% 45%;
+  --color-warning: 36 79% 50%;
+  --color-danger: 5 69% 55%;
+
+  /* Shadows */
+  --shadow-elevation-1: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-elevation-2: 0 4px 8px rgba(0, 0, 0, 0.12);
+
+  /* Sizing */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 0.75rem;
+  --spacing-lg: 1rem;
+  --spacing-xl: 1.5rem;
+}
+
+/* Dark theme overrides: apply dark palette when `data-theme="dark"` is set
+ * on a parent element. Only colours need to change; spacing and radii remain
+ * consistent across themes. */
+[data-theme="dark"] {
+  --color-bg: 220 20% 9%;
+  --color-fg: 210 10% 88%;
+  --color-muted: 210 10% 60%;
+
+  --color-primary: 218 78% 62%;
+  --color-primary-contrast: 218 78% 10%;
+  --color-primary-hover: 218 78% 56%;
+  --color-primary-pressed: 218 78% 50%;
+
+  --color-secondary: 340 65% 65%;
+  --color-secondary-contrast: 340 65% 10%;
+  --color-secondary-hover: 340 65% 58%;
+  --color-secondary-pressed: 340 65% 52%;
+
+  --color-success: 152 49% 55%;
+  --color-warning: 36 79% 58%;
+  --color-danger: 5 69% 65%;
+}
+
+/* Provide sensible defaults on the body element to ensure the
+ * typography appears consistent across all components. */
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: hsl(var(--color-bg));
+  color: hsl(var(--color-fg));
+}

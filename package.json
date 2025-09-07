@@ -1,0 +1,12 @@
+{
+  "name": "spark-ui-monorepo",
+  "private": true,
+  "workspaces": {
+    "packages": ["packages/*"],
+    "apps": ["apps/*"]
+  },
+  "scripts": {
+    "dev": "npm run dev --workspace apps/docs",
+    "build": "npm run build --workspace packages/spark-ui"
+  }
+}
